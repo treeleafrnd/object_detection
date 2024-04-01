@@ -3,16 +3,16 @@ This code is written for detecting the specific object from the image
 as input from the user
  creator -- Mahesh Pela
 '''
-
+# TODO put this code in image_detection.py file
 import cv2
 import torch
 
 # download yolov5 model from the github
-model = torch.hub.load('ultralytics/yolov5','yolov5s')
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
 
 # providing the image_path
-image = cv2.imread('../experiment/Images/animals.jpg')
-image = cv2.resize(image, (1000,650))
+image = cv2.imread('/home/dell/Documents/office_work/treeleafrnd/object_detection/experiment/Images/street.jpg')
+image = cv2.resize(image, (1000, 650))
 
 # performing detection on the image
 results = model(image)
@@ -21,7 +21,7 @@ results = model(image)
 data_frame = results.pandas().xyxy[0]
 
 # specifying class to be filtered from the detected image
-user_input = 'cat'
+user_input = 'bus'
 
 # filtering the dataframe to include only dog
 user_df = data_frame[data_frame['name'] == user_input]
@@ -45,12 +45,10 @@ for index in indexes:
     conf_score = user_df['confidence'][index]
     text = f"{label} {conf_score:.2f}"
 
-# drawing the bounding box and text on the image
-    cv2.rectangle(image, (x1,y1), (x2,y2), (255,255,0), 2)
-    cv2.putText(image, text, (x1, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (255,255,0), 2)
-
+    # drawing the bounding box and text on the image
+    cv2.rectangle(image, (x1, y1), (x2, y2), (255, 255, 0), 2)
+    cv2.putText(image, text, (x1, y1 - 5), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 2)
 
 cv2.imshow(f"Detected {user_input}", image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-

@@ -1,3 +1,6 @@
+# TODO use function implementation like:
+#  def image_example():
+#        code here
 
 # Import PyTorch module
 import torch
@@ -6,7 +9,7 @@ import cv2
 # Download model from github
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
 
-img = cv2.imread('../experiment/Images/animals.jpg')
+img = cv2.imread('/home/dell/Documents/office_work/treeleafrnd/object_detection/experiment/Images/animals.jpg')
 img = cv2.resize(img, (1000, 650))
 
 # Perform detection on image

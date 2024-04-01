@@ -1,4 +1,6 @@
-
+# TODO use function implementation like:
+#  def video_example():
+#        code here
 import torch
 import cv2
 
