@@ -3,7 +3,7 @@ import torch
 
 
 def example_video_detection():
-    cap = cv2.VideoCapture('../experiment/Videos/road_traffic_video.mp4')
+    cap = cv2.VideoCapture('../resource/videos/road_traffic_video.mp4')
 
     # specifying the object to be detected from the video
     user_input = ['car']

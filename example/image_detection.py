@@ -16,7 +16,7 @@ def example_image_detection():
     user_input = ['dog', 'bowl']
 
     # providing the image_path
-    image = cv2.imread('../experiment/Images/animals.jpg')
+    image = cv2.imread('../resource/images/animals.jpg')
     image = cv2.resize(image, (1000, 650))
 
     # performing detection on the image
