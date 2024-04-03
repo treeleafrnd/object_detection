@@ -10,7 +10,7 @@ def yolov5_example():
 
     # defining the thresh value for specific object
     detect_class_thresh = {'dog': 0.5, 'cat': 0.5}
-    bbox, conf, class_names = yolov5_detector.predict(image, detect_class_thresh=detect_class_thresh)
+    bbox, conf, class_names = yolov5_detector.predict(image, detect_class_thresh)
 
     # Drawing bbox and labels on the image
     for (x1, y1, x2, y2), label, conf_score in zip(bbox, class_names, conf):
