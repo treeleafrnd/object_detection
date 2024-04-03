@@ -8,6 +8,7 @@ def yolov5_example():
     # Creating an instance of YoloV5Detector class
     yolov5_detector = YoloV5Detector()
 
+    # defining the thresh value for specific object
     detect_class_thresh = {'dog': 0.5, 'cat': 0.5}
     bbox, conf, class_names = yolov5_detector.predict(image, detect_class_thresh=detect_class_thresh)
 

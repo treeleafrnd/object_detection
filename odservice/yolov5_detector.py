@@ -33,9 +33,15 @@ class YoloV5Detector(BaseDetector):
             conf_score = data_frame['confidence'][index]
             class_name = data_frame['name'][index]
 
+            """
+            detect_class_thresh contains the class name as key and thresh as values
+            class_name in detect_class_thresh -- checks whether the class_name is present in detect_class_thresh or not
+            if true then we retrieve the thresh value of the corresponding clas_name
+            """
             if detect_class_thresh  and class_name in detect_class_thresh:
                 class_thresh = detect_class_thresh[class_name]
 
+            # if not in dictionary then the default thresh value will be 0.5
             else:
                 class_thresh = 0.5
             # setting condition if the conf_score >= thresh then to display the bbox
